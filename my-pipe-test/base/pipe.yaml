@@ -1,0 +1,29 @@
+apiVersion: camel.apache.org/v1
+kind: Pipe
+metadata:
+  annotations:
+    my-annotation: my-value
+    trait.camel.apache.org/affinity.node-affinity-labels: '[node1,node2]'
+    trait.camel.apache.org/camel.properties: '[a=1]'
+    trait.camel.apache.org/camel.runtime-version: 1.2.3
+    trait.camel.apache.org/container.image: my-special-image
+    trait.camel.apache.org/container.image-pull-policy: Always
+    trait.camel.apache.org/container.limit-cpu: "2"
+    trait.camel.apache.org/container.limit-memory: 1024Mi
+    trait.camel.apache.org/container.request-cpu: "1"
+    trait.camel.apache.org/container.request-memory: 2048Mi
+    trait.camel.apache.org/environment.vars: '[MYVAR=1]'
+    trait.camel.apache.org/jvm.classpath: /path/to/artifact-1/*:/path/to/artifact-2/*
+    trait.camel.apache.org/jvm.jar: my.jar
+    trait.camel.apache.org/jvm.options: '[-XMX 123]'
+    trait.camel.apache.org/mount.resources: '[configmap:my-cm,secret:my-sec/my-key@/tmp/file.txt]'
+    trait.camel.apache.org/service.auto: "false"
+    trait.camel.apache.org/toleration.taints: '[mytaints:true]'
+  creationTimestamp: null
+  labels:
+    my-label: my-value
+  name: my-pipe-test
+spec:
+  sink: {}
+  source: {}
+status: {}
